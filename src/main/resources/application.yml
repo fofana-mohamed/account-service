@@ -1,0 +1,21 @@
+spring:
+#  Datasource configuration
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+#    JPA & Hibernate configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#    Logging
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type: TRACE
