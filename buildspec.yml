@@ -6,12 +6,12 @@ phases:
       java: corretto11
     commands:
       - pip install --upgrade awscli
-  pre_build:
-    commands:
-      - mvn clean compile test
+#  pre_build:
+#    commands:
+#      - mvn clean compile test
   build:
     commands:
-      - mvn war:exploded
+      - mvn clean install
   post_build:
     commands:
       - cp -r .ebextensions/ target/ROOT/
