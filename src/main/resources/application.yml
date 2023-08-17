@@ -33,5 +33,9 @@ logging:
         sql: DEBUG
         type: TRACE
 
+server:
+  port: 80
+
+
 
 
