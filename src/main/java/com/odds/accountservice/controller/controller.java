@@ -1,4 +1,4 @@
-package com.odds.accountservice;
+package com.odds.accountservice.controller;
 
 import com.odds.accountservice.model.Account;
 import com.odds.accountservice.repository.AccountRepository;
