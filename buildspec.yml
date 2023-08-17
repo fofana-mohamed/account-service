@@ -4,20 +4,19 @@ phases:
   install:
     runtime-versions:
       java: corretto11
-    commands:
-      - pip install --upgrade awscli
   pre_build:
     commands:
-      - mvn clean compile test
+      - echo "Installing Maven dependencies..."
+      - mvn clean install -DskipTests
   build:
     commands:
-      - mvn clean install
-#  post_build:
-#    commands:
-#      - cp -r .ebextensions/ target/ROOT/
-#      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
-
-#artifacts:
-#  files:
-#    - template-export.yml
-#    - template-configuration.json
+      - echo "Packaging Spring Boot application..."
+      - mvn package -DskipTests
+  post_build:
+    commands:
+      - echo "Copying JAR file to the artifact directory..."
+      - cp target/*.jar build/
+      -
+artifacts:
+  files:
+    - build/*.jar
