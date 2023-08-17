@@ -14,9 +14,8 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
-      - echo "Copying JAR file to the artifact directory..."
-      - cp target/*.jar build/
-      -
+      - echo "Complete"
+
 artifacts:
   files:
-    - build/*.jar
+    - target/*.jar
