@@ -1,16 +1,29 @@
 spring:
 #  Datasource configuration
-  datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+#  datasource:
+#    url: jdbc:h2:mem:mydb
+#    username: sa
+#    password: password
+#    driverClassName: org.h2.Driver
 #    JPA & Hibernate configuration
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+
+#    AWS RDS Datasource configuration
+  datasource:
+    url: jdbc:mysql://admin:easy1998@database-1.cmv6humzaswu.us-east-2.rds.amazonaws.com:3306/myDB
+    username: admin
+    password: easy1998
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
 #    Logging
 logging:
@@ -19,3 +32,6 @@ logging:
       hibernate:
         sql: DEBUG
         type: TRACE
+
+
+
