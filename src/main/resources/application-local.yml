@@ -1,0 +1,26 @@
+spring:
+#  Datasource configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+#    Logging
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type: TRACE
+
+# AWS Values
+aws:
+  accessKey: ${AWS_ACCESS_KEY}
+  secretKey: ${AWS_SECRET_KEY}
+  region: us-east-2
+  datasource:
+    url: jdbc:mysql://admin:easy1998@database-1.cmv6humzaswu.us-east-2.rds.amazonaws.com:3306/myDB
+    secrets-manager:
+      secret-arn: arn:aws:secretsmanager:us-east-2:765196983219:secret:dev/odds/MYSQL-UUPMTa
