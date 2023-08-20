@@ -6,6 +6,8 @@ phases:
       java: corretto11
   pre_build:
     commands:
+      - echo "Generating Sources"
+      - mvn generate-sources
       - echo "Installing Maven dependencies..."
       - mvn clean install -DskipTests
   build:
